@@ -5,3 +5,8 @@ add_library(hello_lib SHARED GreetingCPP/src/Hello.cpp)
 target_include_directories(hello_lib PUBLIC GreetingCPP/inc)
 
 install(TARGETS hello_lib LIBRARY DESTINATION prototype_lib_4_bindings)
+
+cppyy_add_bindings(
+    "greeting_extension"
+    LANGUAGE_STANDARD "17"
+    H_FILES "GreetingCPP/inc/Hello.h")
