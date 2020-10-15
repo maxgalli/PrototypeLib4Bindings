@@ -1,10 +1,17 @@
-#file(COPY cpp/greeting/inc DESTINATION ${CMAKE_BINARY_DIR}/inc)
+#
+# Headers and libraries are listed in a cmake file.
+#
+include(${CMAKE_CURRENT_SOURCE_DIR}/manifest.cmake)
 
-add_library(hello_lib SHARED GreetingCPP/src/Hello.cpp)
-
-target_include_directories(hello_lib PUBLIC GreetingCPP/inc)
-
-install(TARGETS hello_lib LIBRARY DESTINATION prototype_lib_4_bindings)
+#
+# Set up hello shared lib
+#
+add_library(hello SHARED ${LIB_SOURCES})
+set_target_properties(hello PROPERTIES PUBLIC_HEADER ${LIB_HEADERS})
+target_include_directories(hello PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/GreetingCPP/inc)
+install(TARGETS hello
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 cppyy_add_bindings(
    "greeting_extension"
@@ -13,5 +20,5 @@ cppyy_add_bindings(
    INTERFACE_FILE ${CMAKE_CURRENT_SOURCE_DIR}/GreetingCPP/inc/Hello.h
    HEADERS        ${CMAKE_CURRENT_SOURCE_DIR}/GreetingCPP/inc/Hello.h
    INCLUDE_DIRS   ${CMAKE_CURRENT_SOURCE_DIR}/GreetingCPP/inc
-   LINK_LIBRARIES hello_lib
+   LINK_LIBRARIES hello
 )

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(prototype_lib_4_bindings)
+project(prototype_lib_for_bindings)
 
 list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake)
 find_package(Cppyy REQUIRED)

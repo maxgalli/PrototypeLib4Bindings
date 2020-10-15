@@ -2,7 +2,7 @@ from skbuild import setup
 import setuptools
 
 setup(
-    name="prototype_lib_4_bindings",
+    name="prototype_lib_for_bindings",
     version="0.0.0",
     author="Massimiliano Galli",
     author_email="massimiliano.galli.95@gmail.com",
