@@ -7,8 +7,8 @@ for pkg in ['ROOT', 'cppyy', 'cppyy_backend']:
     try:
         import_module(pkg)
     except ModuleNotFoundError:
-        raise ImportError('{} not found. You need a full working installation of ROOT to install this package. \
-                For more info, see: https://root.cern/install/')
+        raise ImportError('{} not found. You need a full working installation of ROOT to install this package.\n' \
+                'For more info, see: https://root.cern/install/'.format(pkg))
 
 setup(
     name="prototype_lib_4_bindings",
