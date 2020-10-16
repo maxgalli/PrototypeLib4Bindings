@@ -1,6 +1,10 @@
 #ifndef HELLO_H
 #define HELLO_H
 
-void hello(char*) {}
+class Greeter {
+    public:
+        Greeter() {};
+        void say_hello(char* name);
+};
 
 #endif

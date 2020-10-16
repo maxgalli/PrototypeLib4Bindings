@@ -1,5 +1,6 @@
 #include <iostream>
+#include "Hello.h"
 
-void hello(char* name) {
+void Greeter::say_hello(char* name) {
     std::cout << "Hello, " << name << std::endl;
 }

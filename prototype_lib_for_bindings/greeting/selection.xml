@@ -1,6 +1,6 @@
 <lcgdict>
     <selection>
-        <function name="hello"/>
+        <class name="Greeter"/>
     </selection>
     <exclusion>
     </exclusion>
